@@ -1,1 +1,25 @@
-Youve made it to the users#new page.
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@user.errors.count, "error") %>
+      prohibited this account from being saved:
+    </h2>
+
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Create an account!</h1>
+
+<%= form_for @user do |f| %>
+Name: <%=f.text_field :name %><br>
+E-mail: <%=f.text_field :email %><br>
+Password: <%= f.text_field :password %><br>
+Favorite Country: <%= f.text_field :favorite_country %><br>
+<%= f.submit %>
+<% end %>
