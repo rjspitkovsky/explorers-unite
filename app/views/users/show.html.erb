@@ -5,3 +5,8 @@
   Comment:<%= trip.comment %><br>
   Recommend?<%= trip.recommend? %><br>
   <% end %>
+
+
+<% if current_user.id == @user.id %>
+<%= link_to "Log Out", logout_path %>
+<% end %> 

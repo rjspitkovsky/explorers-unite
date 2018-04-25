@@ -1,4 +1,5 @@
 class CountriesController < ApplicationController
+  before_action :require_login 
 
 
   def show
