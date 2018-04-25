@@ -1,0 +1,6 @@
+<%= @country.name %><br>
+
+<% @country.trips.each do |trip| %>
+  <%= trip.user.name %><br>
+  <%= trip.comment %>  <br>
+  <% end %> 
