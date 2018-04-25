@@ -1,0 +1,7 @@
+<%= @user.name %><br>
+
+<% @user.trips.each do |trip| %>
+  Country:<%= trip.country.name %><br>
+  Comment:<%= trip.comment %><br>
+  Recommend?<%= trip.recommend? %><br>
+  <% end %>
