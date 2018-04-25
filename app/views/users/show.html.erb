@@ -8,6 +8,7 @@
   <%= recommended? trip %><br>
   <% end %>
 
+<%= link_to "See all users' trips", users_path %> <br>
 
 <% if current_user.id == @user.id %>
 <%= link_to "Edit Info", edit_user_path(@user) %> <br>
