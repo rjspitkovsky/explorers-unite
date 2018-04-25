@@ -1,6 +1,6 @@
 <%= @country.name %><br>
 
 <% @country.trips.each do |trip| %>
-  <%= trip.user.name %><br>
+  <%= link_to trip.user.name, user_path(trip.user) %><br>
   <%= trip.comment %>  <br>
-  <% end %> 
+  <% end %>

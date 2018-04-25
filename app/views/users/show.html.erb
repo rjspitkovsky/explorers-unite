@@ -1,12 +1,15 @@
-<%= @user.name %><br>
+<h1><%= @user.name %>'s Page!</h1><br>
 
-<% @user.trips.each do |trip| %>
-  Country:<%= trip.country.name %><br>
+<h2>Trips taken:</h2>
+<% @user.trips.each.with_index(1) do |trip, i| %>
+  <%= i %><br>
+  Country:<%= link_to trip.country.name, country_path(trip.country) %><br>
   Comment:<%= trip.comment %><br>
-  Recommend?<%= trip.recommend? %><br>
+  <%= recommended? trip %><br>
   <% end %>
 
 
 <% if current_user.id == @user.id %>
+<%= link_to "Edit Info", edit_user_path(@user) %> <br>
 <%= link_to "Log Out", logout_path %>
-<% end %> 
+<% end %>

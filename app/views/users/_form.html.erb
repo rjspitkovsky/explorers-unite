@@ -1,0 +1,7 @@
+<%= form_for @user do |f| %>
+Name: <%=f.text_field :name %><br>
+E-mail: <%=f.text_field :email %><br>
+Password: <%= f.text_field :password %><br>
+Favorite Country: <%= f.text_field :favorite_country %><br>
+<%= f.submit %>
+<% end %>
