@@ -1,1 +1,9 @@
-Youve made it to the sessions#new page 
+<div class="form">
+
+  <%= form_tag('/login') do %>
+  E-mail: <%=text_field_tag :'email' %><br>
+  Password: <%= text_field_tag :'password' %><br>
+  <%= submit_tag "Log In" %>
+  <% end %>
+
+</div>
