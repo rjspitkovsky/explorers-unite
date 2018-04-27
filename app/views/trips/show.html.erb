@@ -1,0 +1,10 @@
+<%= @trip.country.name %><br>
+<%= @trip.user.name %><br>
+<%= @trip.comment %><br>
+<%= @trip.year %> <br>
+<%= recommended? @trip %><br>
+
+<% if @trip.user == current_user %>
+<%= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
+<%= link_to "Delete this trip", trip_path(@trip), method: :delete %>
+<% end %>

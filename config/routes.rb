@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root 'static#home'
 
   resources :users do
-    resources :trips, only: [:show, :new, :edit, :create, :update]
+    resources :trips, only: [:show, :new, :edit]
   end
+
+  resources :trips 
 
   resources :countries
 

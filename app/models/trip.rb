@@ -2,7 +2,6 @@ class Trip < ApplicationRecord
   belongs_to :user
   belongs_to :country
   validates :comment, length: {maximum: 100}
-  validates :recommend?, presence: true
   validates :year, length: {is: 4}
 
     def country_name=(name)
@@ -10,6 +9,6 @@ class Trip < ApplicationRecord
     end
 
     def country_name
-      self.country.name
-    end 
+      self.country.name if self.country
+    end
 end

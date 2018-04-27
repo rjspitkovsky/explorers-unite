@@ -6,7 +6,7 @@
 
 <h2>Trips taken:</h2>
 <% @user.trips.each.with_index(1) do |trip, i| %>
-  <%= i %><br>
+  <%= link_to i, user_trip_path(@user, trip) %><br>
   Country:<%= link_to trip.country.name, country_path(trip.country) if trip.country%><br>
   Comment:<%= trip.comment %><br>
   <%= recommended? trip %><br>
@@ -17,11 +17,17 @@
 
 
 
+
+<div class="footer">
+
+
 <% if current_user.id == @user.id %>
-<%= link_to "Add a Trip", new_user_trip_path(@user) %>
+<%= link_to "Add a Trip", new_user_trip_path(@user) %><br>
 <%= link_to "Edit Info", edit_user_path(@user) %> <br>
-<%= link_to "Log Out", logout_path %>
+<%= link_to "Log Out", logout_path %><br>
 <% end %>
 
 
+
 <%= link_to "See all users' trips", users_path %> <br>
+</div>

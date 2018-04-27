@@ -60,3 +60,11 @@
  .hidden {
  	display: none;
  }
+
+ .footer {
+  color: white;
+  padding: 20px 15px;
+  height: 100px;
+  text-align: left;
+  border-top: 2px solid #e6e6e6;
+ }

@@ -1,15 +1,19 @@
+<h1>Welcome <%= current_user.name%>. Here are all the trips posted:</h1>
+
 
 <% @users.each do |user| %>
-  <%= link_to user.name, user_path(user) %> <br>
+  <%= link_to user.name.upcase, user_path(user) %>
 
-
+  <br>
   <% user.trips.each do |trip| %>
 
   <%= link_to trip.country.name, country_path(trip.country) %><br>
-  <%= trip.comment %><br>
-
+  <br>
+  <%= link_to trip.comment, trip_path(trip) %><br>
+  <br>
   <% end %>
+
 <% end %>
 
-
+<%= link_to "Your Page", user_path(current_user) %><br>
 <%= link_to "Log Out", logout_path %>
