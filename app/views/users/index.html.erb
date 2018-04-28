@@ -9,7 +9,7 @@
 
   <%= link_to trip.country.name, country_path(trip.country) %><br>
   <br>
-  <%= link_to trip.comment, trip_path(trip) %><br>
+  <%= link_to trip.comment, user_trip_path(trip.user, trip) %><br>
   <br>
   <% end %>
 

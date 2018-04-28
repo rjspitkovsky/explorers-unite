@@ -1,3 +1,15 @@
+
+
+
+<h1>Filter by year:</h1>
+
+<%= form_tag("/trips", method: "get") do %>
+  <%= select_tag "year", options_for_select(["pre-2000", "2000-2009", "2010-2015", "2016-present"]), include_blank: true %><br>
+  <%= submit_tag "Filter" %><br>
+  <% end %>
+
+<br>
+
 <% @trips.each do |trip| %>
 <%= trip.country.name %><br>
 <%= trip.user.name %><br>
