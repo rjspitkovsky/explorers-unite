@@ -23,9 +23,8 @@ class TripsController < ApplicationController
         @trip = Trip.new(trip_params)
         @trip.user = current_user
           if params[:trip][:country] != ""
-            @country = Country.find_by(name: params[:trip][:country])
-            @trip.country = @country
-
+            @trip.country = Country.find_by(name: params[:trip][:country])
+  
             if  @trip.save
               redirect_to users_path
             else

@@ -1,7 +1,7 @@
 <%= form_for @trip do |f| %>
 
   <%= f.label :country_name %>
-  <%= f.collection_select :country, Country.all, :name, :name, :prompt => true %>
+  <%= f.collection_select :country, Country.all, :name, :name, :include_blank => true %>
 
   <h2>Or add a new country:</h2>
   <%= f.label :country %>
