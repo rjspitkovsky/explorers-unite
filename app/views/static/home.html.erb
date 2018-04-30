@@ -13,5 +13,5 @@
 <h4><%=link_to('Log in with Facebook!', '/auth/facebook')%></h4>
 
 <% if current_user %>
-<h4>You are logged in</h4>
+<h4>You are logged in. <%= link_to "Your page", user_path(current_user)%></h4>
 <% end %>

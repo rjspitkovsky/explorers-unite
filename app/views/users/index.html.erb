@@ -16,7 +16,7 @@
   <div class="user-trips">
 
 
-<%= link_to trip.country.name, country_path(trip.country) %><br>
+<%= link_to trip.country.name, country_path(trip.country) if trip.country%><br>
   <br>
 <%= link_to trip.comment, user_trip_path(trip.user, trip) %><br>
   <br>

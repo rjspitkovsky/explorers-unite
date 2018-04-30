@@ -1,3 +1,4 @@
+require 'pry'
 class TripsController < ApplicationController
   before_action :require_login
 
@@ -19,21 +20,34 @@ class TripsController < ApplicationController
   end
 
   def create
-    @trip = Trip.new(trip_params)
-    @trip.user = current_user
-    if @trip.save
-    redirect_to users_path
-  else
-    render 'new'
-  end
-end
+        @trip = Trip.new(trip_params)
+        @trip.user = current_user
+          if params[:trip][:country] != ""
+            @country = Country.find_by(name: params[:trip][:country])
+            @trip.country = @country
+
+            if  @trip.save
+              redirect_to users_path
+            else
+              render 'new'
+            end
+
+          else
+
+            if @trip.save
+              redirect_to users_path
+            else
+              render 'new'
+            end
+
+          end
+        end
 
   def edit
     @trip = Trip.find_by(id: params[:id])
   end
 
   def update
-
     @trip = Trip.find_by(id: params[:id])
     @trip.comment = params[:trip][:comment]
     if @trip.update(trip_params)
@@ -58,4 +72,20 @@ end
   def trip_params
     params.require(:trip).permit(:country_name, :comment, :recommend?, :year)
   end
+
+  def class_method_conditional
+    if params[:year] == "pre-2000"
+      @trips = Trip.twentieth_century
+    elsif
+      params[:year] == "2000-2009"
+      @trips = Trip.aughts
+    elsif
+      params[:year] == "2010-2015"
+      @trips = Trip.first_half_of_teens
+    elsif
+      params[:year] == "2016-present"
+      @trips = Trip.second_half_of_teens
+    end
+  end
+
 end
