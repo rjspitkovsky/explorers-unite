@@ -1,4 +1,4 @@
-<h1>All the countries' our Explorers have visited!</h1>
+
 
 <%= @country.name %><br>
 
@@ -6,3 +6,9 @@
   <%= link_to trip.user.name, user_path(trip.user) %><br>
   <%= trip.comment %>  <br>
   <% end %>
+
+  <br>
+  <br>
+
+  <%= link_to "Back to all countries", countries_path %><br>
+  <%= link_to "Back to all trips", users_path %><br>

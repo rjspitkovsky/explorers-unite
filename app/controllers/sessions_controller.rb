@@ -6,13 +6,7 @@ class SessionsController < ApplicationController
 
   def create
     if auth_hash = request.env['omniauth.auth']
-
-      @user = User.find_or_create_by_omniauth(auth_hash) #do |u|
-      #   u.name = auth_hash['info']['name']
-      #   u.email = auth_hash['info']['email']
-      #   u.image = auth_hash['info']['image']
-      # end
-       #binding.pry
+      @user = User.find_or_create_by_omniauth(auth_hash)
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
