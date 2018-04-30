@@ -2,7 +2,7 @@
 <h2>Click a country to see the trips that have gone there.</h2><br>
 
 <% @countries.each do |country| %>
-<%= link_to country.name.upcase, country_path(country) %><br>
+<%= link_to country.name.upcase, country_path(country) %> <%= pluralize(country.trips.count, "trip") %><br>
 <% end %>
 
 <br>
