@@ -18,7 +18,9 @@
  body {
  	margin: 0;
  	padding: 0;
-  background-color: #256;
+  background: linear-gradient(blue, red, green);
+  background-color: teal;
+
  }
 
  button {
@@ -39,10 +41,11 @@
  }
 
  body {
- 	font: 14px 'Verdana', Helvetica, Arial, sans-serif;
+ 	font: 18px 'Times New Roman', Helvetica, Arial, sans-serif;
  	line-height: 1.5em;
  	background: #f5f5f5;
- 	color: purple;
+  background-color: white;
+ 	color: black;
  	min-width: 230px;
  	max-width: 600px;
  	margin: 0 auto;
@@ -63,8 +66,19 @@
 
  .footer {
   color: white;
-  padding: 20px 15px;
-  height: 100px;
+  padding: 10px 15px;
+  height: 20px;
   text-align: left;
   border-top: 2px solid #e6e6e6;
+ }
+
+ .user {
+  text-align: center;
+  font-weight: bold;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 2px solid black;
+ }
+
+ .user-trips {
+     border-top: 1px solid #e6e6e6;
  }

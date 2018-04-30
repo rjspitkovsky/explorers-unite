@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+  before_action :require_login
 
   def index
     if !params[:year].blank?
@@ -14,6 +15,7 @@ class TripsController < ApplicationController
       #   params[:year] == "2016-present"
       #   @trips = Trip.second_half_of_teens
       class_method_conditional
+      @filter = params[:year]
       else
         @trips = Trip.all
       end

@@ -1,5 +1,6 @@
 <h1><%= @user.name %>'s Page!</h1><br>
 
+<h2> This user's favorite country is: <%= @user.favorite_country%></h2>
 <% if @user.trips.empty? %>
 <h2>There are no trips to show yet.</h2>
 <% else %>
@@ -15,10 +16,11 @@
 
 
 
+<br>
+<br>
 
 
 
-<div class="footer">
 
 
 <% if current_user.id == @user.id %>
@@ -30,4 +32,3 @@
 
 
 <%= link_to "See all users' trips", users_path %> <br>
-</div>

@@ -10,8 +10,18 @@
 
 <br>
 
+<% if @filter %>
 <% @trips.each do |trip| %>
+<div class="user">
+
+
 <%= trip.country.name %><br>
-<%= trip.user.name %><br>
+<%= link_to trip.user.name, user_path(trip.user) %><br>
 <%= trip.comment %><br>
+
+</div>
+  <% end %>
 <% end %>
+
+<%= link_to "Back to all trips", users_path %><br>
+<%= link_to "Log Out", logout_path %><br>
