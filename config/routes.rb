@@ -6,12 +6,14 @@ Rails.application.routes.draw do
     resources :trips, only: [:show, :new, :edit]
   end
 
-  resources :trips 
+  resources :trips
 
   resources :countries
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  get '/auth/facebook/callback' => 'sessions#create'
 
 end

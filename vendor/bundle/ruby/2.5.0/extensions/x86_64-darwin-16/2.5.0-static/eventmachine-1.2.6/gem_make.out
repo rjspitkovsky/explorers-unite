@@ -1,0 +1,16 @@
+current directory: /Users/richardspitkovsky/repos/explorers-unite/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.6/ext/fastfilereader
+/Users/richardspitkovsky/.rbenv/versions/2.5.0/bin/ruby -r ./siteconf20180430-5822-1jgmxyn.rb extconf.rb
+creating Makefile
+
+current directory: /Users/richardspitkovsky/repos/explorers-unite/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.6/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /Users/richardspitkovsky/repos/explorers-unite/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.6/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/richardspitkovsky/repos/explorers-unite/vendor/bundle/ruby/2.5.0/gems/eventmachine-1.2.6/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20180430-5822-1x5p3si
