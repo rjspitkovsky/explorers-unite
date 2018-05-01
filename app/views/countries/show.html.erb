@@ -5,6 +5,7 @@
 <% @country.trips.each do |trip| %>
   <%= link_to trip.user.name, user_path(trip.user) %><br>
   <%= trip.comment %>  <br>
+  <%= recommended? trip %> <br>
   <% end %>
 
   <br>

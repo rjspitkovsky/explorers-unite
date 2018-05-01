@@ -1,6 +1,10 @@
 <h1>Welcome <%= current_user.name%>. Here are all the trips that have been posted:</h1>
 
 
+<%= link_to "Add a trip", new_user_trip_path(current_user) %> <br>
+<%= link_to "Filter trips by year", trips_path %><br>
+<%= link_to "Filter by country", countries_path %><br>
+<%= link_to "Your Page", user_path(current_user) %><br>
 
 
 <% @users.each do |user| %>
@@ -27,11 +31,8 @@
 
 
 
+<br>
+<br>
 
 
-
-<%= link_to "Add a trip", new_user_trip_path(current_user) %> <br>
-<%= link_to "Filter trips by year", trips_path %><br>
-<%= link_to "Filter by country", countries_path %><br>
-<%= link_to "Your Page", user_path(current_user) %><br>
-<%= link_to "Log Out", logout_path %>
+<%= link_to "Log Out", logout_path %> 
