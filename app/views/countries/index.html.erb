@@ -4,8 +4,9 @@
 
 
 <% @countries.each do |country| %>
-<% tripless? country %>
+<% if !tripless country %>
 <%= link_to country.name.upcase, country_path(country) %> <%= pluralize(country.trips.count, "trip") %><br>
+<% end %> 
 <% end %>
 
 <br>

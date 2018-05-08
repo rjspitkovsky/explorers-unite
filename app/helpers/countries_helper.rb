@@ -1,9 +1,6 @@
 module CountriesHelper
 
-  def tripless?(country)
-      if country.trips.empty?
-        country.delete
-      end
-    
+  def tripless (country)
+      country.trips.empty?
   end
 end

@@ -8,7 +8,7 @@ Year Visited: <%= @trip.year %> <br>
 
 <% if @trip.user == current_user %>
 <%= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
-<%= link_to "Delete this trip", trip_path(@trip), method: :delete %>
+<%= link_to "Delete this trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure you want to delete this trip?"} %>
 <% end %>
 <br>
 <br>
