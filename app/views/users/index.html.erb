@@ -8,6 +8,7 @@
 
 
 <% @users.each do |user| %>
+<% if !tripless user %>
 <div class="user">
 
 
@@ -28,6 +29,7 @@
   <% end %>
 </div>
 <% end %>
+<% end %> 
 
 
 
@@ -35,4 +37,4 @@
 <br>
 
 
-<%= link_to "Log Out", logout_path %> 
+<%= link_to "Log Out", logout_path %>

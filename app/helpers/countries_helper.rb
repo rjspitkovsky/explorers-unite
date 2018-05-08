@@ -1,6 +1,6 @@
 module CountriesHelper
 
-  def tripless (country)
+  def tripless(country)
       country.trips.empty?
   end
 end
