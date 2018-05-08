@@ -4,6 +4,7 @@ class Trip < ApplicationRecord
   validates :comment, length: {maximum: 100}
   validates :year, length: {is: 4}
   validate :future_trip?
+  alias_attribute :recommend, :recommend?
 
     def future_trip?
       if year > Time.new.year

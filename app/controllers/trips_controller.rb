@@ -20,27 +20,15 @@ class TripsController < ApplicationController
   end
 
   def create
-        @trip = Trip.new(trip_params)
-        @trip.user = current_user
-          if params[:trip][:country] != ""
-            @trip.country = Country.find_by(name: params[:trip][:country])
-  
-            if  @trip.save
-              redirect_to users_path
-            else
-              render 'new'
-            end
-
-          else
-
-            if @trip.save
-              redirect_to users_path
-            else
-              render 'new'
-            end
-
-          end
-        end
+    @trip = Trip.new(trip_params)
+    @trip.user = current_user
+      if params[:trip][:country] != ""
+        @trip.country = Country.find_by(name: params[:trip][:country])
+        saving_trip
+      else
+        saving_trip
+      end
+  end
 
   def edit
     @trip = Trip.find_by(id: params[:id])
@@ -69,7 +57,7 @@ class TripsController < ApplicationController
   private
 
   def trip_params
-    params.require(:trip).permit(:country_name, :comment, :recommend?, :year)
+    params.require(:trip).permit(:country_name, :comment, :recommend, :year)
   end
 
   def class_method_conditional
@@ -84,6 +72,14 @@ class TripsController < ApplicationController
     elsif
       params[:year] == "2016-present"
       @trips = Trip.second_half_of_teens
+    end
+  end
+
+  def saving_trip
+    if  @trip.save
+      redirect_to users_path
+    else
+      render 'new'
     end
   end
 

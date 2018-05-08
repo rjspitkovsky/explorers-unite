@@ -14,7 +14,7 @@
 <% @trips.each do |trip| %>
 <div class="user">
 
-
+<%= trip.year %><br>
 <%= trip.country.name %><br>
 <%= link_to trip.user.name, user_path(trip.user) %><br>
 <%= trip.comment %><br>
