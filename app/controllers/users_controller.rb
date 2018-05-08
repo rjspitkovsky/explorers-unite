@@ -1,3 +1,4 @@
+require 'pry'
 class UsersController < ApplicationController
   before_action :require_login
   skip_before_action :require_login, only: [:new, :create]
@@ -5,10 +6,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @user = User.most_trips_taken.first
   end
 
   def show
+    if params[:id] == "most_trips_taken"
+      @user = User.most_trips_taken.first
+      render 'most_trips_taken'
+
+    else
     @user = User.find_by(id: params[:id])
+  end
   end
 
   def new
@@ -37,6 +45,7 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
 
 private
   def user_params

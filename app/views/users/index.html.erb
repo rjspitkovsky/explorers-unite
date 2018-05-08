@@ -5,6 +5,7 @@
 <%= link_to "Filter trips by year", trips_path %><br>
 <%= link_to "Filter by country", countries_path %><br>
 <%= link_to "Your Page", user_path(current_user) %><br>
+<%= link_to "See the user with most trips taken", users_most_trips_taken_path %> 
 
 
 <% @users.each do |user| %>
@@ -29,7 +30,7 @@
   <% end %>
 </div>
 <% end %>
-<% end %> 
+<% end %>
 
 
 

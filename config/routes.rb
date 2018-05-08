@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :countries
 
+  get '/users/most_trips_taken' => 'users#most_trips_taken'
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'

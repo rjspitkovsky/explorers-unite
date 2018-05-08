@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :favorite_country, presence: true, unless: :logged_in_through_facebook
   validates :password, length: {minimum: 6}, unless: :logged_in_through_facebook
   validates :email, uniqueness: true
+  scope :most_trips_taken, -> { joins(:trips).group('trips.user_id').order("count(trips.user_id) desc").limit(1)}
 
   def logged_in_through_facebook
     !!self.uid
