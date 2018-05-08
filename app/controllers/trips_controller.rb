@@ -12,10 +12,11 @@ class TripsController < ApplicationController
     end
 
   def new
-     if params[:user_id]
-    @trip = Trip.new(user_id: params[:user_id])
+     if params[:user_id] && !User.exists?(params[:user_id])
+       #@trip = Trip.new(user_id: params[:user_id])
+       redirect_to users_path
     else
-      @trip = Trip.new(user_id: current_user.id)
+      @trip = Trip.new(user_id: params[:user_id])
     end
   end
 
