@@ -17,7 +17,7 @@
 <%= trip.year %><br>
 <%= trip.country.name %><br>
 <%= link_to trip.user.name, user_path(trip.user) %><br>
-<%= trip.comment %><br>
+<%= link_to trip.comment, user_trip_path(trip.user, trip) %><br>
 <%= recommended? trip%><br>
 
 </div>
