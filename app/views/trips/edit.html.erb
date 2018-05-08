@@ -18,21 +18,6 @@
 
 <%= form_for @trip do |f| %>
 
-  <!-- <%= f.label :country_name %>
-  <%= f.collection_select :country_name, Country.all, :id, :name, :prompt => true %> -->
-
-  <!-- <h2>Or add a new country:</h2> -->
-   <!-- <%= f.label :country %>
-  <%= f.text_field :country_name %> <br> -->
-
-  <!-- <<h3>Other details:</h3>
-  Year Visited:<%= f.text_field :year %><br> -->
-   <%= f.label :recommend? %>
-  <%= f.check_box :recommend?, {}, "true", "false" %><br>
-<!--
-  <%= f.label :year %>
-  <%= f.text_field :year %><br> -->
-
   <%= f.label :comment %>
   <%= f.text_area :comment %><br>
   <%= f.submit %>
