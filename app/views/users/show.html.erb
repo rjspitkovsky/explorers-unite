@@ -6,15 +6,13 @@
 <% else %>
 
 
-<a href="#" onclick="loadTrips();">Show this user's trips</a>
+<a class="js-load-trips" href="#" onclick="loadTrips();" data-user-id="<%=@user.id%>">See this user's trips:</a>
 
-<h2>Trips taken:</h2>
-<% @user.trips.each.with_index(1) do |trip, i| %>
-  <%= link_to i, user_trip_path(@user, trip) %><br>
-  Country:<%= link_to trip.country.name, country_path(trip.country) if trip.country%><br>
-  Comment:<%= trip.comment %><br>
-  <%= recommended? trip %><br>
-  <% end %>
+<div id="trips">
+
+</div>
+
+
   <% end %>
 
 
@@ -35,3 +33,19 @@
 
 
 <%= link_to "See all users' trips", users_path %> <br>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+// $(function () {
+//   $(".js-load-trips").on('click', function(e) {
+//     e.preventDefault()
+//     var userId = $(this).data("user-id");
+//     $.get(`/users/${userId}/trips`, function(data) {
+//       $("#trips").text(data[0]["comment"])
+//       $("#trips").text(data[1]["comment"])
+//       $("#trips").text(data[2]["country"]["name"])
+//     })
+//   })
+// })
+
+</script>
