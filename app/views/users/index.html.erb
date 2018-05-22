@@ -1,37 +1,25 @@
-<h1>Welcome <%= current_user.name%>. Here are all the trips that have been posted:</h1>
+<h1>Welcome <%= current_user.name%>. Browse users to see their trips:</h1>
 
 
 <%= link_to "Add a trip", new_user_trip_path(current_user) %> <br>
 <%= link_to "Filter trips by year", trips_path %><br>
 <%= link_to "Filter by country", countries_path %><br>
 <%= link_to "Your Page", user_path(current_user) %><br>
-<%= link_to "See the user with most trips taken", users_most_trips_taken_path %> 
+<%= link_to "See the user with most trips taken", users_most_trips_taken_path %><br>
 
-
+<div class="user">
 <% @users.each do |user| %>
 <% if !tripless user %>
-<div class="user">
+
 
 
   <%= link_to user.name.upcase, user_path(user) %><br>
 
 
-  <br>
 
-  <% user.trips.each do |trip| %>
-  <div class="user-trips">
-
-
-<%= link_to trip.country.name, country_path(trip.country) if trip.country%><br>
-  <br>
-<%= link_to trip.comment, user_trip_path(trip.user, trip) %><br>
-  <br>
-</div>
-  <% end %>
-</div>
 <% end %>
 <% end %>
-
+</div>
 
 
 <br>

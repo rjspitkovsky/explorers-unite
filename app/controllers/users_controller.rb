@@ -15,6 +15,7 @@ class UsersController < ApplicationController
 
     else
     @user = User.find_by(id: params[:id])
+    render json: @user 
   end
   end
 
