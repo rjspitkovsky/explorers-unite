@@ -1,0 +1,3 @@
+function loadTrips() {
+  $.get('/users/')
+}

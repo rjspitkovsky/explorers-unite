@@ -15,7 +15,10 @@ class UsersController < ApplicationController
 
     else
     @user = User.find_by(id: params[:id])
-    render json: @user 
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @user}
+    end
   end
   end
 

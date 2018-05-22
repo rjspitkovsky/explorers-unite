@@ -5,6 +5,9 @@
 <h2>There are no trips to show yet.</h2>
 <% else %>
 
+
+<a href="#" onclick="loadTrips();">Show this user's trips</a>
+
 <h2>Trips taken:</h2>
 <% @user.trips.each.with_index(1) do |trip, i| %>
   <%= link_to i, user_trip_path(@user, trip) %><br>
