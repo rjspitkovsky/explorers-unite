@@ -52,7 +52,7 @@ class TripsController < ApplicationController
       @trip = @user.trips.find_by(id: params[:id])
       respond_to do |format|
         format.html {render :show}
-        format.json {render json: @trip.to_json}
+        format.json {render json: @trip}
       end
       if @trip.nil?
         redirect_to users_path
@@ -61,8 +61,8 @@ class TripsController < ApplicationController
     @trip = Trip.find_by(id: params[:id])
     respond_to do |format|
       format.html {render :show}
-      format.json {render json: @trip.to_json}
-    end 
+      format.json {render json: @trip}
+    end
     end
   end
 
