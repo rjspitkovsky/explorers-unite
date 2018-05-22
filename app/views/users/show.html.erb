@@ -43,12 +43,14 @@ $(function () {
 })
 })
 </script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script id="trip-template" type="text/x-handlebars-template">
   {{#each this}}
-    <section><h2>{{this.id}}</h2>
-      <h3>{{country["name"]}}</h3>
-      <p>{{comment}}</p>
-      <a href="/users/{{user["id"]}}/trips{{id}}">See More Details</a>
-    </section> 
+    <section>
+      <h2>{{this.id}}</h2><br>
+      <h3>{{this.country.name}}</h3><br>
+      <p>{{this.comment}}</p><br>
+      <a href="/users/{{user.id}}/trips/{{this.id}}">See More Details</a>
+    </section>
   {{/each}}
 </script>

@@ -1,14 +1,23 @@
+function UserTrips(data){
+  this.trips = data
+}
+
+
 function loadTrips() {
 
   let userId = parseInt($(".js-load-trips").attr("data-user-id"))
   $.get(`/users/${userId}/trips`, function(data) {
 
     // GIVING JSON INFO TO JS OBJECT MODEL
-    let tripIds = []
-    data.forEach(trip => tripIds.push(trip.comment))
+    let user = new UserTrips(data)
+    // let tripIds = []
+    // data.forEach(trip => tripIds.push(trip.comment))
 
     // TEMPLATING INTO DOM
-    document.getElementById("trips").innerHTML += tripIds.join(" ") //(result)
+    let template = Handlebars.compile(document.getElementById("trip-template").innerHTML);
+    let result = template(user.trips);
+    document.getElementById("trips").innerHTML += result;
+    // document.getElementById("trips").innerHTML += tripIds.join(" ") //(result)
     // alert(data[0]["comment"])
   })
   }
