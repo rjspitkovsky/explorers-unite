@@ -19,8 +19,10 @@
 // }
 
 function loadTrips() {
+
   let userId = parseInt($(".js-load-trips").attr("data-user-id"))
   $.get(`/users/${userId}/trips`, function(data) {
-    alert(data[0]["comment"])
+    document.getElementById("trips").innerHTML += data[0]["comment"]
+    // alert(data[0]["comment"])
   })
   }

@@ -6,7 +6,7 @@
 <% else %>
 
 
-<a class="js-load-trips" href="#" onclick="loadTrips();" data-user-id="<%=@user.id%>">See this user's trips:</a>
+<a class="js-load-trips" href="#" data-user-id="<%=@user.id%>">See this user's trips:</a>
 
 <div id="trips">
 
@@ -36,9 +36,10 @@
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
-// $(function () {
-//   $(".js-load-trips").on('click', function(e) {
-//     e.preventDefault()
+$(function () {
+  $(".js-load-trips").on('click', function(e) {
+    e.preventDefault();
+    loadTrips();
 //     var userId = $(this).data("user-id");
 //     $.get(`/users/${userId}/trips`, function(data) {
 //       $("#trips").text(data[0]["comment"])
@@ -47,5 +48,6 @@
 //     })
 //   })
 // })
-
+})
+})
 </script>
