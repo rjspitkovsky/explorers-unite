@@ -4,7 +4,7 @@ class Trip < ApplicationRecord
   validates :comment, length: {maximum: 100}
   validates :year, length: {is: 4}
   validate :future_trip?
-  validates :country_name, presence: true 
+  validates :country_name, presence: true
   alias_attribute :recommend, :recommend?
 
     def future_trip?
@@ -36,4 +36,5 @@ class Trip < ApplicationRecord
     def self.second_half_of_teens
       where('year > ? AND year < ?', 2015, 2019)
     end
+
 end

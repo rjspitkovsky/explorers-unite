@@ -3,6 +3,12 @@ class TripsController < ApplicationController
   before_action :require_login
 
   def index
+    if params[:user_id]
+      @trips = Trip.where(user_id: params[:user_id])
+      render json: @trips
+    end
+
+
     if !params[:year].blank?
       class_method_conditional
       @filter = params[:year]
