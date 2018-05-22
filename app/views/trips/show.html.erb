@@ -1,4 +1,11 @@
 <%= link_to @trip.country.name, country_path(@trip.country) if @trip.country%><br>
+
+List other users who have been to this country:
+<% @trip.country.users.each do |user| %>
+  <%= link_to user.name, user_path(user) if user != @trip.user%><br>
+  <%end%>
+
+
 <%= link_to @trip.user.name, user_path(@trip.user)%><br>
 <br>
 Explorers Unite Trip ID: <%= @trip.id %> <br>

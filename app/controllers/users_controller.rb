@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    @user = User.most_trips_taken.first
   end
 
   def show

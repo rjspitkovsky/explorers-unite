@@ -50,11 +50,19 @@ class TripsController < ApplicationController
     if params[:user_id]
       @user = User.find_by(id: params[:user_id])
       @trip = @user.trips.find_by(id: params[:id])
+      respond_to do |format|
+        format.html {render :show}
+        format.json {render json: @trip.to_json}
+      end
       if @trip.nil?
         redirect_to users_path
       end
     else
     @trip = Trip.find_by(id: params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @trip.to_json}
+    end 
     end
   end
 
