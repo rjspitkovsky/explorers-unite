@@ -1,28 +1,14 @@
-// $(document).ready(function() {
-//   loadTrips()
-// })
-//
-//
-// function loadTrips() {
-//   // $('#load-trips').on('click', function(e) {
-//   //   let userId = $(e.target).attr('user-id')
-//   //   fetchTrips(userId)
-//   // })
-//   let userId = $(e.target).attr('user-id')
-//
-// }
-//
-// function fetchTrips(userId) {
-//   $.get('/users/' + userId + '/trips.json', function(data) {
-//     alert(data)
-//   })
-// }
-
 function loadTrips() {
 
   let userId = parseInt($(".js-load-trips").attr("data-user-id"))
   $.get(`/users/${userId}/trips`, function(data) {
-    document.getElementById("trips").innerHTML += data[0]["comment"]
+
+    // GIVING JSON INFO TO JS OBJECT MODEL
+    let tripIds = []
+    data.forEach(trip => tripIds.push(trip.comment))
+
+    // TEMPLATING INTO DOM
+    document.getElementById("trips").innerHTML += tripIds.join(" ") //(result)
     // alert(data[0]["comment"])
   })
   }

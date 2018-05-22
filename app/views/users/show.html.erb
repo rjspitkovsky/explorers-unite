@@ -40,14 +40,15 @@ $(function () {
   $(".js-load-trips").on('click', function(e) {
     e.preventDefault();
     loadTrips();
-//     var userId = $(this).data("user-id");
-//     $.get(`/users/${userId}/trips`, function(data) {
-//       $("#trips").text(data[0]["comment"])
-//       $("#trips").text(data[1]["comment"])
-//       $("#trips").text(data[2]["country"]["name"])
-//     })
-//   })
-// })
 })
 })
+</script>
+<script id="trip-template" type="text/x-handlebars-template">
+  {{#each this}}
+    <section><h2>{{this.id}}</h2>
+      <h3>{{country["name"]}}</h3>
+      <p>{{comment}}</p>
+      <a href="/users/{{user["id"]}}/trips{{id}}">See More Details</a>
+    </section> 
+  {{/each}}
 </script>
