@@ -14,4 +14,5 @@
 //= require activestorage
 //= require turbolinks
 //= require loadTrips
+//= require postTrips
 //= require_tree .

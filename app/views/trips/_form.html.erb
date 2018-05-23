@@ -33,35 +33,11 @@
   $(function () {
     $('form').submit(function(event) {
       event.preventDefault();
-      // $('#new-trip').empty()
       let values = $(this).serialize();
-      // postTrip(values);
-
       let posting = $.post('/trips', values);
       posting.done(function(data) {
-        // loadTrips()
         postTrip(data)
-        // let trip = data;
-        //
-        // $("#trips").append(`<h3 id="new-trip-id">Explorers Unite Trip Id: ${trip["id"]}</h3>
-        //   <h3 id="new-trip-country">${trip["country"]["name"]}</h3>
-        //   <p id= "new-trip-comment">Comment: ${trip["comment"]}</p>
-        //   <a href="/users/${trip["user"]["id"]}/trips/${trip["id"]}">See More Details About This Trip</a>`
-        // )
-
-        // $("#new-trip-comment").text(`Comment: ${trip["comment"]}`);
-        // $("#new-trip-id").text(`Explorers Unite Trip Id: ${trip["id"]}`);
-        // $("#new-trip-country").text(trip["country"]["name"]);
-        // $("#new-trip").append(`<a href="/users/${trip["user"]["id"]}/trips/${trip["id"]}">See More Details About This Trip</a>`)
-        // document.getElementById("#new-trip-form").reset()
-        // $("#new-trip-link").href =`/users/${trip["user"]["id"]}/trips/${trip["id"]}`
-        // $("#new-trip").innerHTML += data
-        // let template = Handlebars.compile(document.getElementById("trip-template").innerHTML);
-        // let result = template(data);
-        // debugger
-        // document.getElementById("trips").innerHTML += result;
       }).done(document.getElementById("new-trip-form").reset())
-
     })
   })
 </script>
