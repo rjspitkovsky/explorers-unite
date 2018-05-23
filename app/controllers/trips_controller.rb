@@ -101,7 +101,8 @@ class TripsController < ApplicationController
 
   def saving_trip
     if  @trip.save
-      redirect_to users_path
+      #redirect_to users_path
+      render json: @trip, status: 201
     else
       render 'new'
     end

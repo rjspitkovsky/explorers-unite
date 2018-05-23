@@ -17,3 +17,18 @@
   <%= f.submit %>
 
 <% end %>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $('form').submit(function(event) {
+      event.preventDefault();
+      let values = $(this).serialize();
+      let posting = $.post('/trips', values);
+      posting.done(function(data) {
+        
+      })
+
+    })
+  })
+</script>
