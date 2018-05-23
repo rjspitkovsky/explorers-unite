@@ -1,9 +1,4 @@
-<%= link_to @trip.country.name, country_path(@trip.country) if @trip.country%><br>
-
-List other users who have been to this country:
-<% @trip.country.users.each do |user| %>
-  <%= link_to user.name, user_path(user) if user != @trip.user%><br>
-  <%end%>
+<h1 class="next-trip-country"><%=@trip.country.name%></h1>
 
 
 <%= link_to @trip.user.name, user_path(@trip.user)%><br>
@@ -32,15 +27,6 @@ List other users who have been to this country:
     $(".js-next-trip").on("click", function(e) {
       e.preventDefault()
       fetchNextTrip()
-      // let nextTripId = parseInt($(".js-next-trip").attr("data-trip-id")) + 1;
-      // let userId = parseInt($(".js-next-trip").attr("data-user-id"))
-      // $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
-      //   $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
-      //   $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
-      //   $(".js-next-trip").attr("data-trip-id", data["id"]);
-      //   $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
-      //   $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
-      // })
     })
   })
 

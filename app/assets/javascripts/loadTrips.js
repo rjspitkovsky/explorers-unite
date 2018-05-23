@@ -39,14 +39,18 @@ function loadTrips() {
   $.get(`/users/${userId}/trips`, function(data) {
     let user = new UserTrips(data)
     let nextTripId = user.findNextTripId(userId, tripId)
-
-  // CODE WHERE findNextTripId(userId, tripId) function will go
-  $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
-    $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
-    $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
-    $(".js-next-trip").attr("data-trip-id", data["id"]);
-    $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
-    $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
-  })
+    seedNextTripFields(userId, nextTripId)
   })
 }
+
+
+  function seedNextTripFields(userId, nextTripId) {
+    $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
+      $(".next-trip-country").text(data["country"]["name"]);
+      $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
+      $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
+      $(".js-next-trip").attr("data-trip-id", data["id"]);
+      $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
+      $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
+    })
+  }
