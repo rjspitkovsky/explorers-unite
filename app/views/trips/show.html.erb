@@ -31,15 +31,16 @@ List other users who have been to this country:
   $(function () {
     $(".js-next-trip").on("click", function(e) {
       e.preventDefault()
-      let nextTripId = parseInt($(".js-next-trip").attr("data-trip-id")) + 1;
-      let userId = parseInt($(".js-next-trip").attr("data-user-id"))
-      $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
-        $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
-        $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
-        $(".js-next-trip").attr("data-trip-id", data["id"]);
-        $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
-        $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
-      })
+      fetchNextTrip()
+      // let nextTripId = parseInt($(".js-next-trip").attr("data-trip-id")) + 1;
+      // let userId = parseInt($(".js-next-trip").attr("data-user-id"))
+      // $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
+      //   $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
+      //   $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
+      //   $(".js-next-trip").attr("data-trip-id", data["id"]);
+      //   $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
+      //   $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
+      // })
     })
   })
 
