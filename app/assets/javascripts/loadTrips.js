@@ -1,3 +1,4 @@
+// UserTrips JS Object Model will need to add more functionality -- i.e. method to get ID of next trip 
 function UserTrips(data){
   this.trips = data
 }

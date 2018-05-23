@@ -25,6 +25,30 @@
 
 
 <% if current_user.id == @user.id %>
+
+<% if @trip.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@trip.errors.count, "error") %>
+      prohibited this account from being saved:
+    </h2>
+
+    <ul>
+    <% @trip.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+
+<h1>Add a new trip:</h1>
+
+<%= render partial: "trips/form", locals: {trip: @trip} %> 
+
+
+
+
 <%= link_to "Add a Trip", new_user_trip_path(@user) %><br>
 <%= link_to "Edit Info", edit_user_path(@user) %> <br>
 <%= link_to "Log Out", logout_path %><br>
