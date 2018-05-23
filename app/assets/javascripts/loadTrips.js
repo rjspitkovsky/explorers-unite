@@ -4,7 +4,11 @@ function UserTrips(data){
 }
 
 UserTrips.prototype.findNextTripId = function(userId, tripId) {
-    return 23
+    data = this.trips
+    tripIds = []
+    data.forEach(trip => tripIds.push(trip.id))
+    let currentTripIndex = tripIds.indexOf(tripId)
+    return tripIds[currentTripIndex + 1]
   }
 
 
