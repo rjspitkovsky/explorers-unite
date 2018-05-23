@@ -8,10 +8,13 @@ List other users who have been to this country:
 
 <%= link_to @trip.user.name, user_path(@trip.user)%><br>
 <br>
-Explorers Unite Trip ID: <%= @trip.id %> <br>
-Comment: <%= @trip.comment %><br>
-Year Visited: <%= @trip.year %> <br>
-<%= recommended? @trip %><br>
+<h3 class="next-trip-id">Explorers Unite Trip ID: <%= @trip.id %></h3><br>
+<h2 class="next-trip-comment">Comment: <%= @trip.comment %></h2><br>
+<h3 class="next-trip-year">Year Visited: <%= @trip.year %></h3><br>
+<h3 class="next-trip-recommend"><%= recommended? @trip %></h3><br>
+
+
+
 
 <% if @trip.user == current_user %>
 <%= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
@@ -21,3 +24,23 @@ Year Visited: <%= @trip.year %> <br>
 <br>
 
 <%= link_to "Back to all trips", users_path %><br>
+<a class="js-next-trip" data-user-id="<%=@trip.user.id%>" data-trip-id="<%=@trip.id%>" href="#">See the next trip by this user</a>
+
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+  $(function () {
+    $(".js-next-trip").on("click", function(e) {
+      e.preventDefault()
+      let nextTripId = parseInt($(".js-next-trip").attr("data-trip-id")) + 1;
+      let userId = parseInt($(".js-next-trip").attr("data-user-id"))
+      $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
+        $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
+        $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
+        $(".js-next-trip").attr("data-trip-id", data["id"]);
+        $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
+        $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
+      })
+    })
+  })
+
+</script>
