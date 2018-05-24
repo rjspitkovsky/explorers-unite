@@ -1,6 +1,6 @@
 # Explorers Unite
 
-This Ruby on Rails app allows you to connect with fellow travelers who love to explore the world as you do. You can post your own trips, along with comments and recommendations, as well as view other user's trips. Who knows? You may get some inspiration for your next adventure...
+This Ruby on Rails app with a jQuery front-end allows you to connect with fellow travelers who love to explore the world as you do. You can post your own trips, along with comments and recommendations, as well as view other user's trips. Who knows? You may get some inspiration for your next adventure...
 
 
 ## Installation
@@ -13,4 +13,4 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/rjspit
 
 
 ## License
-The gem is available as open source under the terms of the MIT License.
+The gem is available as open source under the terms of the MIT License at https://opensource.org/licenses/MIT
