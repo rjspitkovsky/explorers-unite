@@ -11,6 +11,14 @@ UserTrips.prototype.findNextTripId = function(userId, tripId) {
     return tripIds[currentTripIndex + 1]
   }
 
+  // UserTrips.prototype.changeRecommendValue = function() {
+  //   if (data["recommend?"] === true) {
+  //     return "Yes"
+  //   } else {
+  //     return "No"
+  //   }
+  // }
+
 
 
 function loadTrips() {
@@ -46,6 +54,7 @@ function loadTrips() {
 
   function seedNextTripFields(userId, nextTripId) {
     $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
+      let trip = new Trip(data)
       $(".js-next-trip-country").text(data["country"]["name"]);
       $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
       $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
@@ -53,6 +62,7 @@ function loadTrips() {
       $(".js-next-trip-country").attr("data-country-id", data["country"]["id"]);
       $(".js-other-users").attr("data-country-id", data["country"]["id"]);
       $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
-      $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
+      $(".next-trip-recommend").text(`Recommended? ${trip.changeRecommendValue()}`);
+
     })
   }

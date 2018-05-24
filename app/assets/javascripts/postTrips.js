@@ -2,7 +2,13 @@ function Trip(data) {
   this.data = data
 }
 
-
+Trip.prototype.changeRecommendValue = function() {
+  if (this.data["recommend?"]) {
+    return "Yes"
+  } else {
+    return "No"
+  }
+}
 
 function postTrip(data) {
 
