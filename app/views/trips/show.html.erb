@@ -1,12 +1,12 @@
-<h1 class="next-trip-country"><%=@trip.country.name%></h1>
+<h1 class="js-next-trip-country" data-country-id="<%=@trip.country.id%>"><%=@trip.country.name%></h1>
 
 
 <%= link_to @trip.user.name, user_path(@trip.user)%><br>
 <br>
-<h3 class="next-trip-id">Explorers Unite Trip ID: <%= @trip.id %></h3><br>
-<h2 class="next-trip-comment">Comment: <%= @trip.comment %></h2><br>
-<h3 class="next-trip-year">Year Visited: <%= @trip.year %></h3><br>
-<h3 class="next-trip-recommend"><%= recommended? @trip %></h3><br>
+<h4 class="next-trip-id">Explorers Unite Trip ID: <%= @trip.id %></h4><br>
+<h3 class="next-trip-comment">Comment: <%= @trip.comment %></h3><br>
+<h4 class="next-trip-year">Year Visited: <%= @trip.year %></h4><br>
+<h4 class="next-trip-recommend"><%= recommended? @trip %></h4><br>
 
 
 
@@ -15,6 +15,12 @@
 <%= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
 <%= link_to "Delete this trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure you want to delete this trip?"} %>
 <% end %>
+<br>
+<br>
+
+
+<a class="js-other-users" data-country-id="<%=@trip.country.id%>" href="#">Click to see other users that have been to this country</a><br>
+
 <br>
 <br>
 
@@ -29,5 +35,9 @@
       fetchNextTrip()
     })
   })
+
+</script>
+
+<script type="text/javascript">
 
 </script>

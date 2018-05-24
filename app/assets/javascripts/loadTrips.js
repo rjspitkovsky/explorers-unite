@@ -46,10 +46,11 @@ function loadTrips() {
 
   function seedNextTripFields(userId, nextTripId) {
     $.get(`/users/${userId}/trips/${nextTripId}.json`, function(data) {
-      $(".next-trip-country").text(data["country"]["name"]);
+      $(".js-next-trip-country").text(data["country"]["name"]);
       $(".next-trip-id").text(`Explorers Unite Trip ID: ${data["id"]}`);
       $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
       $(".js-next-trip").attr("data-trip-id", data["id"]);
+      $(".js-next-trip-country").attr("data-country-id", data["country"]["id"]);
       $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
       $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
     })
