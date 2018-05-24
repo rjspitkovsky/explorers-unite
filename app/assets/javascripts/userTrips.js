@@ -17,7 +17,7 @@ function loadTrips() {
     let user = new UserTrips(data)
     let template = Handlebars.compile(document.getElementById("trip-template").innerHTML);
     let result = template(user.trips);
-    document.getElementById("trips").innerHTML += result;
+    document.getElementById("trips").innerHTML = result;
   })
   }
 

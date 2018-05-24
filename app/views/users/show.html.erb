@@ -5,62 +5,36 @@
 <h2>There are no trips to show yet.</h2>
 <% else %>
 
-
 <a class="js-load-trips" href="#" data-user-id="<%=@user.id%>">See this user's trips:</a>
 
 <div id="trips">
-
 </div>
-
-
-
-
   <% end %>
 
-
-
 <br>
 <br>
-
-
-
-
 
 <% if current_user.id == @user.id %>
 
-
-
-
-
-
 <%= render partial: "trips/form", locals: {trip: @trip} %>
-
-
-
 
 <%= link_to "Add a Trip", new_user_trip_path(@user) %><br>
 <%= link_to "Edit Info", edit_user_path(@user) %> <br>
 <%= link_to "Log Out", logout_path %><br>
 <% end %>
 
-
-
 <%= link_to "See all users' trips", users_path %> <br>
 
 <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 $(function () {
-
   $(".js-load-trips").one('click', function(e) {
-
-
     e.preventDefault();
     loadTrips();
-
 })
-
 })
 </script>
+
 <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
 <script id="trip-template" type="text/x-handlebars-template">
   {{#each this}}

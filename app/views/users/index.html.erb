@@ -1,21 +1,14 @@
 <h1>Welcome <%= current_user.name%>. Browse users to see their trips:</h1>
 
-
-<%= link_to "Add a trip", new_user_trip_path(current_user) %> <br>
 <%= link_to "Filter trips by year", trips_path %><br>
 <%= link_to "Filter by country", countries_path %><br>
 <%= link_to "Your Page", user_path(current_user) %><br>
-<%= link_to "See the user with most trips taken", users_most_trips_taken_path %><br>
+
 
 <div class="user">
 <% @users.each do |user| %>
 <% if !tripless user %>
-
-
-
   <%= link_to user.name.upcase, user_path(user) %><br>
-
-
 
 <% end %>
 <% end %>
