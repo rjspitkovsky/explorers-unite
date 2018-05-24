@@ -1,12 +1,12 @@
 <h1 class="js-next-trip-country" data-country-id="<%=@trip.country.id%>"><%=@trip.country.name%></h1>
 
 
-<%= link_to @trip.user.name, user_path(@trip.user)%><br>
-<br>
-<h4 class="next-trip-id">Explorers Unite Trip ID: <%= @trip.id %></h4><br>
-<h3 class="next-trip-comment">Comment: <%= @trip.comment %></h3><br>
-<h4 class="next-trip-year">Year Visited: <%= @trip.year %></h4><br>
-<h4 class="next-trip-recommend"><%= recommended? @trip %></h4><br>
+<h1><%= link_to @trip.user.name, user_path(@trip.user)%></h1>
+
+<h4 class="next-trip-id">Explorers Unite Trip ID: <%= @trip.id %></h4>
+<h3 class="next-trip-comment">Comment: <%= @trip.comment %></h3>
+<h4 class="next-trip-year">Year Visited: <%= @trip.year %></h4>
+<h4 class="next-trip-recommend"><%= recommended? @trip %></h4>
 
 
 
@@ -19,8 +19,10 @@
 <br>
 
 
-<a class="js-other-users" data-country-id="<%=@trip.country.id%>" href="#">Click to see other users that have been to this country</a><br>
+<a class="js-other-users" data-user-id="<%=@trip.user.id%>" data-country-id="<%=@trip.country.id%>" href="#">Click to see other users that have been to this country</a><br>
+<div id="other-users">
 
+</div>
 <br>
 <br>
 
@@ -39,5 +41,10 @@
 </script>
 
 <script type="text/javascript">
-
+  $(function () {
+    $(".js-other-users").on("click", function(e) {
+      e.preventDefault();
+      getOtherUsers();
+    })
+  })
 </script>

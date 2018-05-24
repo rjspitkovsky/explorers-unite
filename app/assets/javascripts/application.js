@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require loadTrips
 //= require postTrips
+//= require getOtherUsers
 //= require_tree .

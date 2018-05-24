@@ -40,7 +40,7 @@ function loadTrips() {
     let user = new UserTrips(data)
     let nextTripId = user.findNextTripId(userId, tripId)
     seedNextTripFields(userId, nextTripId)
-  })
+  }).done($("#other-users").empty())
 }
 
 
@@ -51,6 +51,7 @@ function loadTrips() {
       $(".next-trip-comment").text(`Comment: ${data["comment"]}`);
       $(".js-next-trip").attr("data-trip-id", data["id"]);
       $(".js-next-trip-country").attr("data-country-id", data["country"]["id"]);
+      $(".js-other-users").attr("data-country-id", data["country"]["id"]);
       $(".next-trip-year").text(`Year Visited: ${data["year"]}`);
       $(".next-trip-recommend").text(`Recommended? ${data["recommend?"]}`);
     })
