@@ -13,7 +13,7 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require loadTrips
-//= require postTrips
-//= require getOtherUsers
+//= require userTrips
+//= require trip
+//= require country 
 //= require_tree .

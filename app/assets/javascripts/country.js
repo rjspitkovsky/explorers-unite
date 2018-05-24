@@ -11,9 +11,12 @@
     let beforeUser = users.slice(0, userIndex)
     let afterUser = users.slice(userIndex + 1, users.length)
     let otherUsers = [...beforeUser, ...afterUser]
+    if (otherUsers.length > 0) {
     otherUsers.forEach(user => $("#other-users").append(`<a href="/users/${user.id}">${user.name}</a><br>`))
+  } else {
+    $("#other-users").text("No one else has visited this country")
   }
-
+}
 
 function getOtherUsers() {
   let countryId = parseInt($(".js-other-users").attr("data-country-id"));
