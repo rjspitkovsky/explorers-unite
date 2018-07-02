@@ -8,13 +8,12 @@
 <h4 class="next-trip-year">Year Visited: <%= @trip.year %></h4>
 <h4 class="next-trip-recommend"><%= recommended? @trip %></h4>
 
+<!-- Must refactor to allow for ability to edit and delete trip based on trip being currently viewed. Currently it would act on trip originally viewed before 'next trip' was clicked  -->
 
-
-
-<% if @trip.user == current_user %>
-<%= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
-<%= link_to "Delete this trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure you want to delete this trip?"} %>
-<% end %>
+<!-- <% if @trip.user == current_user %> -->
+<%#= link_to "Edit the comment for this trip", edit_user_trip_path(@trip.user, @trip) %><br>
+<%#= link_to "Delete this trip", trip_path(@trip), method: :delete, data: {confirm: "Are you sure you want to delete this trip?"} %>
+ <!-- <% end %> -->
 <br>
 <br>
 

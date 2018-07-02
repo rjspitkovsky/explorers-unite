@@ -3,6 +3,7 @@
     this.id = data.id
   }
 
+// This method finds the users who have been to the country being viewed, excluding the user whose trip is being viewed. Then we add links to the other users' pages on the trip page 
   Country.prototype.fetchUsers = function(userId) {
     users = this.users
     userIds = []

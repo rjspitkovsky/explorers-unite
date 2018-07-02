@@ -1,7 +1,10 @@
+// Must refactor to add this.country.name, this.comment, this.id, this.userId constructor methods to the Trip class 
+
 function Trip(data) {
   this.data = data
 }
 
+// In the database, the recommend? value is a boolean. The value should be rendered as yes/no instead of true/false
 Trip.prototype.changeRecommendValue = function() {
   if (this.data["recommend?"]) {
     return "Yes"
@@ -9,6 +12,8 @@ Trip.prototype.changeRecommendValue = function() {
     return "No"
   }
 }
+
+// Compiles the information of the trip that was just added to the database in the same format as the Handlebars template
 
 function postTrip(data) {
   let trip = new Trip(data);

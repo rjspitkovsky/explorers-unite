@@ -21,6 +21,8 @@ class Trip < ApplicationRecord
       self.country.name if self.country
     end
 
+    # Scope methods for filtering trips by year 
+
     def self.twentieth_century
       where('year <= ?', 2000)
     end

@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
+# If you aren't logged in, you should immediately have to login 
   def require_login
     redirect_to root_path unless session.include?(:user_id)
   end

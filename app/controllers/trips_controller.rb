@@ -3,6 +3,7 @@ class TripsController < ApplicationController
   before_action :require_login
 
   def index
+    # Getting all the trips taken by one particular user
     if params[:user_id]
       @trips = Trip.where(user_id: params[:user_id])
       render json: @trips
@@ -17,6 +18,9 @@ class TripsController < ApplicationController
       end
     end
 
+
+    # Trips/new not needed as own route because form has been incorporated into users/show page
+    
   # def new
   #    if params[:user_id] && !User.exists?(params[:user_id])
   #      redirect_to users_path
@@ -28,6 +32,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     @trip.user = current_user
+    # If :trip :country is blank then a country was selected from the countries already present. Otherwise it is a new country being added to the database
       if params[:trip][:country] != ""
         @trip.country = Country.find_by(name: params[:trip][:country])
         saving_trip
@@ -83,6 +88,8 @@ class TripsController < ApplicationController
   def trip_params
     params.require(:trip).permit(:country_name, :comment, :recommend, :year)
   end
+
+  # Filter results based on user action on trips index page
 
   def class_method_conditional
     if params[:year] == "pre-2000"

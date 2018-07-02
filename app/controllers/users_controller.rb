@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
     else
     @user = User.find_by(id: params[:id])
-    @trip = @user.trips.build 
+    #form_for on users/show page can wrap around newly built @trip 
+    @trip = @user.trips.build
     respond_to do |format|
       format.html {render :show}
       format.json {render json: @user}
