@@ -1,4 +1,4 @@
-// Must refactor to add this.country.name, this.comment, this.id, this.userId constructor methods to the Trip class 
+// Must refactor to add this.country.name, this.comment, this.id, this.userId constructor methods to the Trip class
 
 function Trip(data) {
   this.data = data
@@ -16,7 +16,7 @@ Trip.prototype.changeRecommendValue = function() {
 // Compiles the information of the trip that was just added to the database in the same format as the Handlebars template
 
 function postTrip(data) {
-  let trip = new Trip(data);
+  const trip = new Trip(data);
   $("#trips").append(`<h3 id="new-trip-id">Explorers Unite Trip Id: ${trip.data.id}</h3>
     <h3 id="new-trip-country">${trip.data.country.name}</h3>
     <p id= "new-trip-comment">Comment: ${trip.data.comment}</p>
